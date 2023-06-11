@@ -1,6 +1,6 @@
 {
-    "name" : "lili商城",
-    "appid" : "__UNI__D472780",
+    "name" : "惠友荟精品商城",
+    "appid" : "__UNI__79B85B0",
     "description" : "",
     "versionName" : "4.2.8",
     "versionCode" : 4000280,
@@ -63,7 +63,7 @@
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ],
                 "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ],
-                "schemes" : "lilishop",
+                "schemes" : "惠友荟精品商城",
                 //安卓自添加 权限  应用市场 过度索取权限
                 "permissionExternalStorage" : {
                     "request" : "none",
@@ -86,7 +86,7 @@
                     "NSLocationAlwaysAndWhenInUseUsageDescription" : "位置信息将用于高德地图的效果展示",
                     "NSMicrophoneUsageDescription" : "用户上传视频时需使用音频信息"
                 },
-                "urltypes" : "lilishop",
+                "urltypes" : "惠友荟精品商城",
                 "dSYMs" : false
             },
             /* ios打包配置 */
@@ -191,7 +191,7 @@
     "mp-weixin" : {
         /* 小程序特有相关 */
         "usingComponents" : true,
-        "appid" : "wx6f10f29075dc1b0b",
+        "appid" : "wx9c591b6d6cbd9fee",
         "optimization" : {
             "subPackages" : true
         },
@@ -206,12 +206,12 @@
                 "desc" : "位置信息将用于高德地图的效果展示"
             }
         },
-        "plugins" : {
-            "live-player-plugin" : {
-                "version" : "1.3.0",
-                "provider" : "wx2b03c6e691cd7370"
-            }
-        },
+        // "plugins" : {
+        //     "live-player-plugin" : {
+        //         "version" : "1.3.0",
+        //         "provider" : "wxf6da982179ac724d"
+        //     }
+        // },
         "requiredPrivateInfos" : [ "chooseLocation", "getLocation" ]
     },
     "h5" : {
@@ -230,7 +230,7 @@
                 "enable" : true
             }
         },
-        "title" : "lilishop",
+        "title" : "惠友荟精品商城",
         "template" : ""
     }
 }

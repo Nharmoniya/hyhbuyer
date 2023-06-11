@@ -45,7 +45,7 @@
 	export default {
 		data() {
 			return {
-        configs:config,
+				configs: config,
 				// 是否展示手机号码授权弹窗，默认第一步不展示，要先获取用户基础信息
 				phoneAuthPopup: false,
 				// 授权信息展示，商城名称
@@ -67,7 +67,7 @@
 			});
 
 			let that = this;
-			
+
 		},
 		methods: {
 			/**
@@ -93,28 +93,28 @@
 
 			//获取用户信息
 			async getUserProfile(e) {
-        let that = this;
-        //获取code
-        await uni.login({
-          success: (res) => {
-            that.code = res.code;
-          },
-        });
-		
+				let that = this;
+				//获取code
+				await uni.login({
+					success: (res) => {
+						that.code = res.code;
+					},
+				});
+
 				// 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
 				await uni.getUserProfile({
 					desc: "用于完善会员资料", // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
 					success: (res) => {
 						that.nickName = res.userInfo.nickName;
-						that.image = res.userInfo.avatarUrl;  
+						that.image = res.userInfo.avatarUrl;
 
-            /**
-             * 根据公有的配置设置登录方式
-             */
-            if(this.configs.enableFetchMobileLogin){
-              this.phoneAuthPopup = true;
-              return false
-            }
+						/**
+						 * 根据公有的配置设置登录方式
+						 */
+						if (this.configs.enableFetchMobileLogin) {
+							this.phoneAuthPopup = true;
+							return false
+						}
 						let iv = res.iv;
 						let encryptedData = res.encryptedData;
 
@@ -154,43 +154,43 @@
 
 			//获取手机号授权
 			getPhoneNumber(e) {
-			  let iv = e.detail.iv;
-			  let encryptedData = e.detail.encryptedData;
-			  if (!e.detail.encryptedData) {
-			    uni.showToast({
-			      title: "请授予手机号码权限，手机号码会和会员系统用户绑定！",
-			      icon: "none",
-			    });
-			    return;
-			  }
+				let iv = e.detail.iv;
+				let encryptedData = e.detail.encryptedData;
+				if (!e.detail.encryptedData) {
+					uni.showToast({
+						title: "请授予手机号码权限，手机号码会和会员系统用户绑定！",
+						icon: "none",
+					});
+					return;
+				}
 
-			  let code = this.code;
-			  let image = this.image;
-			  let nickName = this.nickName;
-			  mpAutoLogin({
-			    encryptedData,
-			    iv,
-			    code,
-			    image,
-			    nickName,
-			  }).then((res) => {
-			    storage.setAccessToken(res.data.result.accessToken);
-			    storage.setRefreshToken(res.data.result.refreshToken);
-			    // 登录成功
-			    uni.showToast({
-			      title: "登录成功!",
-			      icon: "none",
-			    });
-			    //获取用户信息
-			    getUserInfo().then((user) => {
-			      storage.setUserInfo(user.data.result);
-			      storage.setHasLogin(true);
+				let code = this.code;
+				let image = this.image;
+				let nickName = this.nickName;
+				mpAutoLogin({
+					encryptedData,
+					iv,
+					code,
+					image,
+					nickName,
+				}).then((res) => {
+					storage.setAccessToken(res.data.result.accessToken);
+					storage.setRefreshToken(res.data.result.refreshToken);
+					// 登录成功
+					uni.showToast({
+						title: "登录成功!",
+						icon: "none",
+					});
+					//获取用户信息
+					getUserInfo().then((user) => {
+						storage.setUserInfo(user.data.result);
+						storage.setHasLogin(true);
 
-			      uni.navigateBack({
-			        delta: 1,
-			      });
-			    });
-			  });
+						uni.navigateBack({
+							delta: 1,
+						});
+					});
+				});
 			},
 
 
