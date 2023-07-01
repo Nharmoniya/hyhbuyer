@@ -6,7 +6,8 @@
 	"pages": [
 		
 		{
-			"path": "pages/tabbar/home/index",
+			// "path": "pages/tabbar/home/index",
+			"path":"pages/newindex/newindex",
 			"style": {
 				"navigationBarTitleText": "首页",
 				"navigationStyle": "custom", // 隐藏系统导航栏
@@ -15,15 +16,15 @@
 			}
 		},
 		//这里是新首页
-		{
-			"path": "pages/newindex/newindex",
-			"style": {
-				"navigationBarTitleText": "首页",
-				"navigationStyle": "custom", // 隐藏系统导航栏
-				"navigationBarTextStyle": "black",
-				"enablePullDownRefresh":true  
-			}
-		},
+		// {
+		// 	"path": "pages/newindex/newindex",
+		// 	"style": {
+		// 		"navigationBarTitleText": "首页",
+		// 		"navigationStyle": "custom", // 隐藏系统导航栏
+		// 		"navigationBarTextStyle": "black",
+		// 		"enablePullDownRefresh":true  
+		// 	}
+		// },
 		{
 			"path":"pages/tabbar/screen/fullScreen",
 			"style": {
@@ -800,10 +801,10 @@
 	"tabBar": {
 		"color": "#BDBFCC",
 		"selectedColor": "#000",
-		"borderStyle": "#E6E6E6",
+		"borderStyle": "white",
 		"backgroundColor": "#ffffff",
 		"list": [{
-				"pagePath": "pages/tabbar/home/index",
+				"pagePath": "pages/newindex/newindex",
 				"iconPath": "static/tabbar/icon_home_unsel.png",
 				"selectedIconPath": "static/tabbar/icon_home_sel.png",
 				"text": "首页"
