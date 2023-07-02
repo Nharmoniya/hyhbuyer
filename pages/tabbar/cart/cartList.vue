@@ -2,7 +2,7 @@
   <div class="wrapper">
     <!-- 空白页-->
     <view v-if="!loading && (cartDetail.cartList == '' || cartDetail.cartList == [] || !cartDetail)" class="empty">
-      <image src="/static/emptyCart.png" mode="aspectFit"></image>
+      <image src="/static/img/empty-cart.png" mode="aspectFit"></image>
       <view class="empty-tips">
         空空如也
         <navigator class="navigator" url="/pages/tabbar/home/index" open-type="switchTab">随便逛逛></navigator>
@@ -646,8 +646,8 @@ page {
   background: #fff;
 
   image {
-    width: 240rpx;
-    height: 160rpx;
+    width: 500rpx;
+    height: 460rpx;
     margin-bottom: 30rpx;
   }
 

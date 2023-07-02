@@ -5,101 +5,81 @@
 
       <div class="paddingBox">
         <view class="interact-container">
-			<view class="interact-item" @click="navigateTo('/pages/mine/address/addressManage')">
-			  <image src="/static/mine/myaddress.png" mode=""></image>
-			  <view>地址管理</view>
-			</view>
-			
 			<view class="interact-item" @click="navigateTo('/pages/mine/myTracks')">
-			  <image src="/static/mine/logistics.png" mode=""></image>
+			  <image src="/static/img/my/my-history.png" mode=""></image>
 			  <view>我的足迹</view>
 			</view>
 		
 			<view class="interact-item" @click="navigateTo('/pages/order/evaluate/myEvaluate')">
-			  <image src="/static/mine/feedback.png" mode=""></image>
+			  <image src="/static/img/my/my-judge.png" mode=""></image>
 			  <view>我的评价</view>
 			</view>
-			<!-- <view class="interact-item" @click="linkMsgDetail()">
-			  <image src="/static/mine/mycommit.png" mode=""></image>
-			  <view>我的消息</view>
-			</view> -->
-		
-		
+			
 			<view class="interact-item" @click="navigateTo('/pages/mine/myCollect')">
-			  <image src="/static/mine/myfavorite.png" mode=""></image>
+			  <image src="/static/img/my/my-favorite.png" mode=""></image>
 			  <view>我的关注</view>
 			</view>
 			
-			
-			
 			<view class="interact-item" @click="navigateTo('/pages/mine/point/myPoint')">
-			  <image src="/static/mine/mypoint.png" mode=""></image>
+			  <image src="/static/img/my/my-point.png" mode=""></image>
 			  <view>我的积分</view>
 			</view>
 			
 			<view class="interact-item" @click="distribution">
-			  <image src="/static/mine/distribution.png" mode=""></image>
+			  <image src="/static/img/my/my-distribution.png" mode=""></image>
 			  <view>我的分销</view>
 			</view>
 			
-			
-			
 			<view class="interact-item" @click="navigateTo('/pages/order/complain/complainList')">
-			  <image src="/static/mine/shensu.png" mode=""></image>
+			  <image src="/static/img/my/my-complaint.png" mode=""></image>
 			  <view>我的投诉</view>
 			</view>
 				   
-			<view class="interact-item" @click="navigateTo('/pages/cart/coupon/myCoupon')">
-			  <image src="/static/mine/mycoupon.png" mode=""></image>
-			  <view>优惠券</view>
+			<view class="interact-item" @click="navigateTo('/pages/mine/address/addressManage')">
+			  <image src="/static/img/my/my-address.png" mode=""></image>
+			  <view>地址管理</view>
 			</view>
-			
-		
-			        
-					
-          <view class="interact-item" @click="navigateTo('/pages/mine/signIn')">
-            <image src="/static/mine/sign.png" mode=""></image>
-            <view>每日签到</view>
-          </view>
-         
-         
-       
-          
-
-      
-          <view class="interact-item" @click="navigateTo('/pages/cart/coupon/couponCenter')">
-            <image src="/static/mine/couponcenter.png" mode=""></image>
-            <view>领券中心</view>
-          </view>
-          
-         
-          
-          <view class="interact-item" @click="navigateTo('/pages/promotion/bargain/log')">
-            <image src="/static/mine/kanjia.png" mode=""></image>
-            <view>砍价记录</view>
-          </view>
-		  
-		
-		  
-		<view class="interact-item" @click="navigateTo('/pages/mine/set/feedBack')">
-		  <image src="/static/mine/feedback.png" mode=""></image>
-		  <view>意见反馈</view>
-		</view>
-		
-		<view class="interact-item" @click="navigateTo('/pages/mine/set/editionIntro')">
-		  <image src="/static/mine/pointgift.png" mode=""></image>
-		  <view>关于</view>
-		</view>
-		
-		
-		<view class="interact-item" @click="navigateTo('/pages/mine/set/setUp')">
-		  <image src="/static/mine/setting.png" mode=""></image>
-		  <view>设置</view>
-		</view>
-	
-		  
         </view>
       </div>
+	  
+	  <div class="paddingBox" style="margin-top: 30rpx;">
+	    <view class="interact-container">
+			<view class="interact-item" @click="navigateTo('/pages/cart/coupon/myCoupon')">
+				<image src="/static/img/my/my-coupon.png" mode=""></image>
+				<view>优惠券</view>
+			</view>
+	  					
+			<view class="interact-item" @click="navigateTo('/pages/mine/signIn')">
+				<image src="/static/img/my/my-signin.png" mode=""></image>
+				<view>每日签到</view>
+			</view>
+	     
+			<view class="interact-item" @click="navigateTo('/pages/cart/coupon/couponCenter')">
+				<image src="/static/img/my/couponcenter.png" mode=""></image>
+				<view>领券中心</view>
+			</view>
+	      
+			<view class="interact-item" @click="navigateTo('/pages/promotion/bargain/log')">
+				<image src="/static/img/my/my-bargain.png" mode=""></image>
+				<view>砍价记录</view>
+			</view>
+	  		
+	  		<view class="interact-item" @click="navigateTo('/pages/mine/set/feedBack')">
+				<image src="/static/img/my/my-opinion.png" mode=""></image>
+				<view>意见反馈</view>
+	  		</view>
+	  		
+	  		<view class="interact-item" @click="navigateTo('/pages/mine/set/editionIntro')">
+				<image src="/static/img/my/about.png" mode=""></image>
+				<view>关于</view>
+	  		</view>
+	  		
+	  		<view class="interact-item" @click="navigateTo('/pages/mine/set/setUp')">
+				<image src="/static/img/my/setting.png" mode=""></image>
+				<view>设置</view>
+	  		</view>
+	    </view>
+	  </div>
     </view>
   </view>
 </template>
@@ -194,8 +174,8 @@ export default {
       margin: 0 auto 6rpx auto !important;
     }
     image {
-      width: 52rpx;
-      height: 52rpx;
+      width: 56rpx;
+      height: 56rpx;
       margin-bottom: 6rpx;
     }
     display: flex;

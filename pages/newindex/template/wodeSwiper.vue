@@ -64,10 +64,10 @@
 </script>
 
 <style lang="scss" scoped>
-	@font-face {
-		font-family: 'bebasneue';
-		src:url('/staitc/font/BebasNeue-1.otf')
-	}
+	// @font-face {
+	// 	font-family: 'bebasneue';
+	// 	src:url('/staitc/font/BebasNeue-1.otf')
+	// }
 	.content {
 		width: 686rpx;
 		height: 568rpx;

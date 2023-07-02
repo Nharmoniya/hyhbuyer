@@ -265,10 +265,10 @@
 </script>
 
 <style lang="scss" scoped>
-	@font-face {
-		font-family: 'bebasneue';
-		src: url('/static/font/BebasNeue-1.otf');
-	}
+	// @font-face {
+	// 	font-family: 'bebasneue';
+	// 	src: url('@/static/font/BebasNeue-1.otf');
+	// }
 
 	page {
 		background-color: #fff;
