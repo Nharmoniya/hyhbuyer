@@ -657,7 +657,7 @@ page {
     color: $font-color-disabled;
 
     .navigator {
-      color: $uni-color-primary;
+      color: #DBA770;
       margin-left: 16rpx;
     }
   }
@@ -667,7 +667,8 @@ page {
   width: 180rpx;
   height: 70rpx;
   line-height: 70rpx;
-  background: linear-gradient(91deg, $light-color 1%, $aider-light-color 99%);
+  // background: linear-gradient(91deg, $light-color 1%, $aider-light-color 99%);
+  background: #DBA770;
   border-radius: 900rpx;
   text-align: center;
   color: #fff;

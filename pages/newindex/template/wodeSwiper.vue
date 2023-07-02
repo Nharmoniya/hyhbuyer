@@ -15,6 +15,7 @@
 				:style="dontFirstAnimation ? 'animation: none;' : ''">
 				<view class="item" :class="[item.text, SoncurrentIndex == index ? 'item-img' : 'item-img-side']">
 					<image :src="item.original" style="width: 100%;height: 289rpx;border-radius: 20rpx;"></image>
+					<!-- <view style="width: 100%;height: 289rpx;border-radius: 20rpx;">{{item.intro}}</view> -->
 					<view class="product_title">{{item.goodsName}}</view>
 					<view class="product_price">
 						<view class="price">
@@ -64,14 +65,14 @@
 </script>
 
 <style lang="scss" scoped>
-	@font-face {
-		font-family: 'bebasneue';
-		src:url('/staitc/font/BebasNeue-1.otf')
-	}
+	// @font-face {
+	// 	font-family: 'bebasneue';
+	// 	src:url('/staitc/font/BebasNeue-1.otf')
+	// }
 	.content {
 		width: 686rpx;
 		height: 568rpx;
-		font-family: bebasneue;
+		// font-family: bebasneue;
 		// border: 1px solid red;
 
 		//指示器

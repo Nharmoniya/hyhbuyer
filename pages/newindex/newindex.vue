@@ -251,12 +251,12 @@
 				})
 				// 精品推荐
 				getBoutique().then((res)=>{
-					console.log('精品推荐',res.data.result.records)
+					// console.log('精品推荐',res.data.result.records)
 					this.goodsList = res.data.result.records
 				})
 				// 优惠商品
 				getDiscount().then((res)=>{
-					// console.log('优惠商品',res.data.result.records)
+					console.log('优惠商品',res.data.result.records)
 					this.productList = res.data.result.records
 				})
 			}
@@ -265,17 +265,17 @@
 </script>
 
 <style lang="scss" scoped>
-	@font-face {
-		font-family: 'bebasneue';
-		src: url('/static/font/BebasNeue-1.otf');
-	}
+	// @font-face {
+	// 	font-family: 'bebasneue';
+	// 	src: url('/static/font/BebasNeue-1.otf');
+	// }
 
 	page {
 		background-color: #fff;
 	}
 
 	.body {
-		font-family: bebasneue;
+		// font-family: bebasneue;
 		width: 100%;
 		height: 100%;
 		// border: 1px solid red;
@@ -292,7 +292,7 @@
 			z-index: 100;
 			// left: 32rpx;
 			// top: 30rpx;
-			padding-top: 30rpx;
+			padding-top: 80rpx;
 			padding-left: 32rpx;
 			.search_button {
 				display: flex;
@@ -440,6 +440,11 @@
 			width: 686rpx;
 			height: auto;
 			
+		}
+		.direct_sales_product{
+			display: flex;
+			flex-direction: row;
+			// border: 1px solid red;
 		}
 	}
 //多处公用header

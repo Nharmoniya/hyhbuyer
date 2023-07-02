@@ -1,8 +1,8 @@
 <template>
   <view class="category-wrap">
     <u-navbar class="navbar" :is-back="false">
-      <div class="title">商品分类</div>
-      <u-search class="nav-search" disabled @click.native="search" placeholder="搜索商品" :show-action="false"></u-search>
+      <!-- <div class="title">商品分类</div> -->
+      <u-search class="nav-search" style="background-color: #F8F8F8;" disabled @click.native="search" placeholder="搜索商品" :show-action="false"></u-search>
     </u-navbar>
     <view class="content">
       <scroll-view scroll-y scroll-with-animation class="left-aside">
@@ -13,7 +13,7 @@
       <scroll-view scroll-with-animation scroll-y class="right-aside" :upper-threshold="-100" :lower-threshold="-100">
         <!-- 头部图片 -->
         <view class="top-img" id="main-top">
-          <u-image width="500rpx" height="230rpx" @click="navigateToList(topImg.id,topImg.id)" :src="topImg.image" mode="">
+          <u-image width="486rpx" height="200rpx" @click="navigateToList(topImg.id,topImg.id)" :src="topImg.image" mode="">
           </u-image>
         </view>
         <view v-for="item in categoryList" :key="item.id" class="s-list" :id="'main-' + item.id">
@@ -122,6 +122,7 @@ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
 .nav-search {
   padding-left: 30rpx !important;
   padding-right: 20rpx !important;
+  
 }
 .title {
   display: block;
@@ -144,7 +145,7 @@ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
     flex-shrink: 0;
     width: 200rpx;
     height: 100%;
-    background-color: #f7f7f7;
+    background-color: #F8F8F8;
   }
   .f-item {
     display: flex;
@@ -155,8 +156,8 @@ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
     position: relative;
     &.active {
       font-weight: bold;
-      color: $light-color;
-      background: #fff;
+      color: #000000;
+      background: #E7E7E7;
     }
   }
   .right-aside {
@@ -170,6 +171,7 @@ uni-scroll-view .uni-scroll-view::-webkit-scrollbar {
     height: 230rpx;
     border-radius: 8px;
     overflow: hidden;
+	margin-bottom: 40rpx;
     image {
       width: 100%;
       height: 100%;
