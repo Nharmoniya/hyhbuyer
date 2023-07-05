@@ -301,7 +301,7 @@ export default {
   line-height: 70rpx;
   text-align: center;
   font-size: 30rpx;
-  background: $aider-light-color;
+  background: $price-color;
   color: #fff;
   width: 70%;
   margin: 40rpx auto 0 auto;

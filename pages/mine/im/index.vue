@@ -6,7 +6,7 @@
     >
       <!-- 空盒子用来防止消息过少时 拉起键盘会遮盖消息 -->
       <view :animation="anData" style="height: 0"> </view>
-      <u-navbar class="header" title-size="32" :title="toUser.name"></u-navbar>
+      <u-navbar class="header" title-size="32" title="我的客服"></u-navbar>
       <scroll-view
         ref="scrollView"
         class="content"
@@ -252,21 +252,35 @@
 
     <view class="bottom-textarea" :style="{ bottom: inputBottom + 'px' }">
       <view class="textarea-container">
-        <Input
-          @focus="focusTextarea"
-          :maxlength="-1"
-          :auto-height="true"
-          :show-confirm-bar="false"
-          :cursor-spacing="10"
-          :fixed="true"
-          :adjust-position="false"
-          @blur="blurTextarea"
-          v-model="msg"
-          @confirm="sendMessage"
-          confirm-type="send"
-          placeholder-class="my-neirong-sm"
-          placeholder="用一句简短的话描述您的问题"
-        />
+		  <input 
+		  @focus="focusTextarea"
+		  :maxlength="-1"
+		  :auto-height="true"
+		  :show-confirm-bar="false"
+		  :cursor-spacing="10"
+		  :fixed="true"
+		  :adjust-position="false"
+		  @blur="blurTextarea"
+		  v-model="msg"
+		  @confirm="sendMessage"
+		  confirm-type="send"
+		  placeholder-class="my-neirong-sm"
+		  placeholder="用一句简短的话描述您的问题"
+		  />
+		<!-- <u-input
+		   @focus="focusTextarea"
+		   :auto-height="true"
+		   :show-confirm-bar="false"
+		   :cursor-spacing="10"
+		   :fixed="true"
+		   :adjust-position="false"
+		   @blur="blurTextarea"
+		   v-model="msg"
+		   @confirm="sendMessage"
+		   confirm-type="send"
+		   placeholder-class="my-neirong-sm"
+		   placeholder="用一句简短的话描述您的问题"
+		  ></u-input> -->
       </view>
       <view @click="sendMessage" class="cu-tag bg-main-color send round">
         发送
@@ -325,12 +339,16 @@ export default {
 
     // 发送聊天信息
     sendMessage() {
+		console.log(this.msg)
       if (this.msg == "") {
         return 0;
+		console.log('空')
       }
       if (this.socketOpen == false) {
+		  console.log(11)
         return;
       }
+	  console.log(113)
       let msg = {
         operation_type: "MESSAGE",
         to: this.toUser.userId,
@@ -602,7 +620,8 @@ export default {
       }
     },
     focusTextarea(e) {
-      this.inputBottom = e.detail.height;
+	  console.log(e)
+      // this.inputBottom = e.detail.height;
       this.scrollTop += 9999; //滚到底部
     },
     blurTextarea(e) {
@@ -686,6 +705,9 @@ $left-right-margin: 40rpx;
     border-radius: 8rpx;
     box-sizing: border-box;
     padding: 20rpx 16rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
   }
 
   > button {

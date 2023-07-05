@@ -4,7 +4,7 @@
  */
 // 开发环境
 const dev = {
-  im: "https://im-api.pickmall.cn",
+  im: "https://im.gensis0.com.cn",
   // common: "https://common-api.pickmall.cn",
   // buyer: "https://buyer-api.pickmall.cn",
   common: "https://cai.gensis0.com.cn",
@@ -15,7 +15,7 @@ const dev = {
 };
 // 生产环境
 const prod = {
-  im: "https://im-api.pickmall.cn",
+  im: "https://im.gensis0.com.cn",
   // common: "https://common-api.pickmall.cn",
   // buyer: "https://buyer-api.pickmall.cn",
   common: "https://cai.gensis0.com.cn",
