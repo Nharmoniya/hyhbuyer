@@ -309,8 +309,8 @@ page {
   width: 200rpx;
   height: 200rpx;
   border-radius: 50%;
-  background: $aider-light-color;
-  box-shadow: 0 4rpx 24rpx 0 rgba($color: $aider-light-color, $alpha: 1);
+  background: $light-color;
+  box-shadow: 0 4rpx 24rpx 0 rgba($color: $light-color, $alpha: 1);
   display: flex;
   justify-content: center; //这个是X轴居中
   align-items: center; //这个是 Y轴居中
@@ -321,7 +321,7 @@ page {
   width: 160rpx;
   height: 160rpx;
   border-radius: 50%;
-  background: $aider-light-color;
+  background: $light-color;
   text-align: center;
   line-height: 160rpx;
   color: #fff;
@@ -430,7 +430,7 @@ page {
         }
 
         .top {
-          color: $aider-light-color;
+          color: $light-color;
         }
       }
 
@@ -472,7 +472,7 @@ page {
       width: 540rpx;
       height: 130rpx;
       line-height: 130rpx;
-      background: $aider-light-color;
+      background: $light-color;
       color: #fff;
       font-size: 40rpx;
       font-weight: 500;
