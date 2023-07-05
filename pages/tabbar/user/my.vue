@@ -28,12 +28,12 @@
 			  </u-col>
 			
 			  <u-col text-align="center" span="4" @click="navigateTo('/pages/cart/coupon/myCoupon')">
-			    <view>{{ couponNum || 66 }}</view>
+			    <view>{{ couponNum || 0 }}</view>
 				<view>优惠券</view>
 			  </u-col>
 			
 			  <u-col text-align="center" span="4" @click="navigateTo('/pages/mine/myTracks')">
-			    <view>{{ footNum || 10086 }}</view>
+			    <view>{{ footNum || 0 }}</view>
 			    <view>足迹</view>
 			  </u-col>
 			</u-row>
