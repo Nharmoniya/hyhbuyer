@@ -260,7 +260,7 @@
 
 <script>
 /************接口API***************/
-import { getGoods, getGoodsList, getMpScene, getGoodsDistribution } from "@/api/goods.js";
+import { getGoods, getGoodsList, getMpScene, getGoodsDistribution,getGoodsMessage } from "@/api/goods.js";
 import * as API_trade from "@/api/trade.js";
 import * as API_Members from "@/api/members.js";
 import * as API_store from "@/api/store.js";

@@ -772,7 +772,7 @@
 	}
 
 	.fetch {
-		background: linear-gradient(57.72deg, #ff8a19 18.14%, #ff5e00 98.44%);
+		background: linear-gradient(57.72deg, #DBA770 18.14%, #DBA770 98.44%);
 	}
 
 	.btn {

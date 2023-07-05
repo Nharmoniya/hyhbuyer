@@ -37,7 +37,7 @@
 				</view>
 			</view>
 			<view class="direct_sales_area_item">
-				<view class="area_item" v-for="(item,index) in list2" :key="index">
+				<view class="area_item" v-for="(item,index) in list2" :key="index" @click="handleClick(item)">
 					<image :src="item.original" style="width: 156rpx;height: 100%;border-radius: 12rpx;"></image>
 					<view class="item_title">{{item.goodsName}}</view>
 					<view class="item_money">
@@ -72,7 +72,9 @@
 	import {
 		getFloorData
 	} from "@/api/home"; //获取楼层装修接口
-	import { getExclusive,getDiscount,getBoutique } from "@/api/index.js"
+	import { getExclusive,getDiscount,getBoutique,getCategoryList} from "@/api/index.js"
+	import { getStoreCategory } from '@/api/store.js'
+	import { getGoodsMessage } from "@/api/goods.js";
 	import tplmenu from "@/pages/newindex/template/index_menu.vue"; //五列菜单模块
 	import tpl_goods from "@/pages/newindex/template/tpl_goods.vue"; //商品分类以及分类中的商品
 	import discountswiper from '@/pages/newindex/template/wodeSwiper.vue' //优惠商品
@@ -91,23 +93,7 @@
 		},
 		data() {
 			return {
-				list2: [{
-					image: 'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-					title: '昨夜星辰昨夜风，画楼西畔桂堂东',
-					money: 623.00
-				}, {
-					image: 'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-					title: '身无彩凤双飞翼，心有灵犀一点通',
-					money: 4555.00
-				}, {
-					image: 'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-					title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳',
-					money: 4555.00
-				}, {
-					image: 'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-					title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳',
-					money: 4555.00
-				}, ],
+				list2: [],
 				pageData: [],
 				//轮播图数据
 				swiperList: [],
@@ -159,35 +145,29 @@
 				//搜索栏滚动
 				actshow:false,
 				//优惠商品的list
-				productList:[
-					{
-						img:'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-						title:'巴拉巴拉 极致闪耀多色眼影盘',
-						money:'988.23',
-						discount:'243.00',
-					},
-					{
-						img:'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-						title:'巴拉巴拉 极致闪耀多色眼影盘',
-						money:'988.23',
-						discount:'243.00',
-					},
-					{
-						img:'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-						title:'巴拉巴拉 极致闪耀多色眼影盘',
-						money:'988.23',
-						discount:'243.00',
-					},
-					{
-						img:'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-						title:'巴拉巴拉 极致闪耀多色眼影盘',
-						money:'988.23',
-						discount:'243.00',
-					},
-				]
+				productList:[]
 			}
 		},
 		methods: {
+			handleClick(item) {
+				console.log(item)
+				getGoodsMessage(item.id).then((res)=>{
+					console.log(res)
+					if (!res.data.success) {
+					  setTimeout(() => {
+					    uni.navigateBack();
+					  }, 500);
+					} else {
+						console.log(res.data)
+						//获取接口中查到的goodsId 和 Id
+						let goodsId = res.data.result.skuList[0].goodsId
+						let Id = res.data.result.skuList[0].id
+						uni.navigateTo({
+						url: `/pages/product/goods?id=${Id}&goodsId=${goodsId}`,
+						});
+					}
+				});
+			},
 			// 监听页面滚动的距离
 			scrolling() {
 				// 滚动条距文档顶部的距离
@@ -244,6 +224,8 @@
 				});
 			},
 			getIndex(){
+				//店铺分类
+				// getStoreCategory('1675040579882323969').then((res)=>{})
 				// 独家直销
 				getExclusive().then((res)=>{
 					// console.log('独家直销',res.data.result.records)
@@ -256,7 +238,7 @@
 				})
 				// 优惠商品
 				getDiscount().then((res)=>{
-					console.log('优惠商品',res.data.result.records)
+					// console.log('优惠商品',res.data.result.records)
 					this.productList = res.data.result.records
 				})
 			}
@@ -463,6 +445,9 @@
 			font-size: 36rpx;
 			font-weight: 500;
 			color: rgba(0, 0, 0, 0.9);
+			display: flex;
+			flex-direction: row;
+			align-items: center;
 		}
 
 		.right_form {

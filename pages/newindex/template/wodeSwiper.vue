@@ -13,8 +13,8 @@
 			<swiper-item :class="SoncurrentIndex == index ? 'swiper-item' : 'swiper-item-side'"
 				v-for="(item, index) in productlist" :key="index" lazy-load
 				:style="dontFirstAnimation ? 'animation: none;' : ''">
-				<view class="item" :class="[item.text, SoncurrentIndex == index ? 'item-img' : 'item-img-side']">
-					<image :src="item.original" style="width: 100%;height: 289rpx;border-radius: 20rpx;"></image>
+				<view class="item" :class="[item.text, SoncurrentIndex == index ? 'item-img' : 'item-img-side']" @click="handleClick(item)">
+					<image :src="item.original" style="width: 100%;height: 289rpx;border-radius: 20rpx;" ></image>
 					<!-- <view style="width: 100%;height: 289rpx;border-radius: 20rpx;">{{item.intro}}</view> -->
 					<view class="product_title">{{item.goodsName}}</view>
 					<view class="product_price">
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+	import { getGoodsMessage } from "@/api/goods.js";
 	export default {
 		onShow() {},
 		props: {
@@ -59,7 +60,26 @@
 			// }
 			gotoProduct(id){
 				console.log(id)
-			}
+			},
+			handleClick(item) {
+				console.log(item)
+				getGoodsMessage(item.id).then((res)=>{
+					console.log(res)
+					if (!res.data.success) {
+					  setTimeout(() => {
+					    uni.navigateBack();
+					  }, 500);
+					} else {
+						console.log(res.data)
+						//获取接口中查到的goodsId 和 Id
+						let goodsId = res.data.result.skuList[0].goodsId
+						let Id = res.data.result.skuList[0].id
+						uni.navigateTo({
+						url: `/pages/product/goods?id=${Id}&goodsId=${goodsId}`,
+						});
+					}
+				});
+			},
 		}
 	};
 </script>
