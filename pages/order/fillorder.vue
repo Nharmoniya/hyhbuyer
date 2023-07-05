@@ -863,7 +863,8 @@ page {
   height: 80rpx;
   color: #fff;
   line-height: 80rpx;
-  background: linear-gradient(91deg, $light-color 1%, $aider-light-color 99%);
+  // background: linear-gradient(91deg, $light-color 1%, $aider-light-color 99%);
+  background-image: linear-gradient(135deg, #DBA770, #DBA770 69%, #DBA770);
   padding: 0 44rpx;
   text-align: center;
   border-radius: 400px;

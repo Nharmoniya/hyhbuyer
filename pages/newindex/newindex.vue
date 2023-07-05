@@ -233,7 +233,7 @@
 				})
 				// 精品推荐
 				getBoutique().then((res)=>{
-					// console.log('精品推荐',res.data.result.records)
+					console.log('精品推荐',res.data.result.records)
 					this.goodsList = res.data.result.records
 				})
 				// 优惠商品

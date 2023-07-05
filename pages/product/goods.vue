@@ -178,7 +178,7 @@
           <Evaluation id="main5" :goodsDetail="goodsDetail" />
 
           <!-- 店铺推荐 -->
-          <storeLayout id="main7" :storeDetail="storeDetail" :goodsDetail="goodsDetail" :res="recommendList" />
+          <!-- <storeLayout id="main7" :storeDetail="storeDetail" :goodsDetail="goodsDetail" :res="recommendList" /> -->
 
           <!-- 宝贝详情 -->
           <GoodsIntro id="main9" :res="goodsDetail" :goodsParams="goodsParams" :goodsId="goodsDetail.goodsId"

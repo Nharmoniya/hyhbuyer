@@ -17,10 +17,16 @@
 				</view>
 			</view>
 		</view>
+		<!-- 商品规格  商品详情，以及默认参与活动的id-->
+		<!-- <popupGoods :addr="delivery" ref="popupGoods" @changed="changedGoods" @closeBuy="closePopupBuy"
+		  @queryCart="cartCount()" :goodsDetail="goodsDetail" :goodsSpec="goodsSpec" :isGroup="isGroup" :id="productId"
+		  v-if="goodsDetail.id" :pointDetail="pointDetail" :wholesaleList="wholesaleList" @handleClickSku="selectSku"
+		  :buyMask="buyMask" /> -->
 	</view>
 </template>
 
 <script>
+	import popupGoods from "@/components/m-buy/goods"; //购物车商品的模块
 	import { getGoodsMessage } from "@/api/goods.js";
 	export default{
 		props:{

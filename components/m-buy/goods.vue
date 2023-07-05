@@ -409,12 +409,14 @@ export default {
 }
 
 .buy {
-	background-image: linear-gradient(135deg, #ffba0d, #ffc30d 69%, #ffcf0d);
+	// background-image: linear-gradient(135deg, #ffba0d, #ffc30d 69%, #ffcf0d);
+	background-image: linear-gradient(135deg, #DBA770, #DBA770 69%, #DBA770);
 	box-shadow: 0 2px 6px 0 rgba(255, 65, 66, 0.2);
 }
 
 .card {
-	background-image: linear-gradient(135deg, #f2140c, #f2270c 70%, #f24d0c);
+	// background-image: linear-gradient(135deg, #f2140c, #f2270c 70%, #f24d0c);
+	background-image: linear-gradient(135deg, #000000, #000000 70%, #000000);
 	box-shadow: 0 2px 6px 0 rgba(255, 65, 66, 0.2);
 }
 
