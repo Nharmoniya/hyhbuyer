@@ -274,13 +274,13 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 2%;
+    padding: 0 1%;
     color: #716760;
 
     .order-item {
       // position: relative;
       // line-height: 2em;
-      width: 96rpx;
+      width: 98rpx;
 
       :first-child {
         font-size: 48rpx;

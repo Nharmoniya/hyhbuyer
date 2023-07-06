@@ -97,7 +97,7 @@ export function whetherNavigate(type = "default") {
     }
   } else {
     uni.switchTab({
-      url: "/pages/tabbar/home/index",
+      url: "/pages/newindex/newindex",
     });
   }
 }
@@ -224,7 +224,7 @@ function navigationToBack(type) {
     });
   } else {
     uni.switchTab({
-      url: "/pages/tabbar/home/index",
+      url: "/pages/newindex/newindex",
     });
   }
 }

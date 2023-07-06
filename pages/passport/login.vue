@@ -371,7 +371,7 @@
 								delta: getCurrentPages().length - 2,
 							}) :
 							uni.switchTab({
-								url: "/pages/tabbar/home/index",
+								url: "/pages/newindex/newindex",
 							});
 					}
 				});
@@ -487,7 +487,7 @@
 								storage.setUserInfo(user.data.result);
 								storage.setHasLogin(true);
 								uni.switchTab({
-									url: "/pages/tabbar/home/index",
+									url: "/pages/newindex/newindex",
 								});
 								/**
 								 * 计算出当前router路径
@@ -503,7 +503,7 @@
 								}
 							} else {
 								uni.switchTab({
-									url: "/pages/tabbar/home/index",
+									url: "/pages/newindex/newindex",
 								});
 							}
 						});
@@ -582,7 +582,7 @@
 
 						} else {
 							uni.switchTab({
-								url: "/pages/tabbar/home/index",
+								url: "/pages/newindex/newindex",
 							});
 						}
 					});

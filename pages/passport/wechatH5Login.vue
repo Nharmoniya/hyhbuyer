@@ -44,10 +44,13 @@ export default {
       let code = "WECHAT";
       let buyer = api.buyer;
       window.open(buyer + `/passport/connect/connect/login/web/` + code, "_self");
+	  setTimeout(() => {
+		whetherNavigate();
+	  },200);
     },
     backToHome() {
       uni.switchTab({
-        url: `/pages/tabbar/home/index`,
+        url: `/pages/newindex/newindex`,
       });
     },
   },
