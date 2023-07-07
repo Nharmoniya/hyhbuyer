@@ -17,7 +17,7 @@
 			<tplmenu :res="menuList"></tplmenu>
 		</view>
 		<!-- 活动专区 -->
-		<view class="activity_form">
+		<view class="activity_form" @click="gotoCoupon">
 			<image src="@/static/img_activity_nor@2x.png" style="width: 100%;height: 100%;"></image>
 			<view class="activity_content">
 				<view style="font-size: 32rpx;">新人专享</view>
@@ -240,6 +240,12 @@
 				getDiscount().then((res)=>{
 					// console.log('优惠商品',res.data.result.records)
 					this.productList = res.data.result.records
+				})
+			},
+			//领劵
+			gotoCoupon(){
+				uni.navigateTo({
+					url:'/pages/cart/coupon/couponCenter'
 				})
 			}
 		}

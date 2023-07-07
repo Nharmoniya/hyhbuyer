@@ -1,14 +1,19 @@
 /** 配置楼层模块的跳转 */
 export function modelNavigateTo(item) {
-	let val = item.url || item;
+	// console.log(item)
+	// let val = item.title || item;
 	//链接跳转到专题
 
-	if (val && val.id && val.pageType == "special") {
-		uni.navigateTo({
-			url: `/pages/tabbar/special/special?id=${val.id}`,
-		});
-	}
-	switch (val.___type || val.type) {
+	// if (val && val.id && val.pageType == "special") {
+	// 	uni.navigateTo({
+	// 		url: `/pages/tabbar/special/special?id=${val.id}`,
+	// 	});
+	// }
+	switch (item.title) {
+		case "天降神券":
+		    uni.navigateTo({
+		    	url:'/pages/cart/coupon/couponCenter'
+		    })
 		case "goods":
 			uni.navigateTo({
 				url: "/pages/product/goods?id=" + val.id + "&goodsId=" + val.goodsId,

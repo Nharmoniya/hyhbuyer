@@ -26,10 +26,11 @@
                 @change="checkboxChangeDP(item)"></u-checkbox>
               <!-- #endif -->
             </u-checkbox-group>
-            <span class="store-name wes store-line-desc" @click.stop="navigateToStore(item)">{{
+            <!-- <span class="store-name wes store-line-desc" @click.stop="navigateToStore(item)">{{
               item.storeName 
-            }}</span>
-            <u-icon @click="navigateToStore(item)"  size="24" style="margin-left:10rpx;"  name="arrow-right"></u-icon>
+            }}</span> -->
+			<span class="store-name wes store-line-desc">全选</span>
+            <!-- <u-icon @click="navigateToStore(item)"  size="24" style="margin-left:10rpx;"  name="arrow-right"></u-icon> -->
           </view>
           <view class="right-col" v-if="item.canReceiveCoupon" @click="navigateToCoupon(item)">
             <div class="right-line"></div>

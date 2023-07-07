@@ -92,9 +92,9 @@
     <div class="box box2" v-for="(item, index) in orderMessage.cartList" :key="index">
       <div v-if="item.checked">
         <div @click="navigateToStore(item)">
-          <div class="store-name">
+          <!-- <div class="store-name">
             <span>{{ item.storeName }}</span>
-          </div>
+          </div> -->
         </div>
         <div class="promotionNotice">{{ item.promotionNotice || "" }}</div>
         <div class="flex goods-item" v-for="(val, i) in item.checkedSkuList" :key="i">

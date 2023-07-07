@@ -492,6 +492,7 @@ export default {
     this.goodsDetail = {};
     //如果有参数ids说明事分销短连接，需要获取参数
     if (this.routerVal.scene) {
+		console.log('router',this.routerVal)
       getMpScene(this.routerVal.scene).then((res) => {
         if (res.data.success) {
           let data = res.data.result.split(","); // skuId,goodsId,distributionId
