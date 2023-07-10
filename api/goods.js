@@ -62,6 +62,7 @@ export function getGoodsList(params) {
   });
 }
 
+
 /**
  * 获取上新商品列表
  * @param params
@@ -219,5 +220,9 @@ export function checkedDistributionGoods(params) {
   })
 }
 
-
-
+export function getcategoryPath(){
+	return http.request({
+		url:`/goods/goods/storeCategoryPath`,
+		method:Method.GET
+	})
+}

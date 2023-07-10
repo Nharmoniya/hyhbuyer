@@ -72,9 +72,9 @@
 	import {
 		getFloorData
 	} from "@/api/home"; //获取楼层装修接口
-	import { getExclusive,getDiscount,getBoutique,getCategoryList} from "@/api/index.js"
+	import { getExclusive,getDiscount,getBoutique} from "@/api/index.js"
 	import { getStoreCategory } from '@/api/store.js'
-	import { getGoodsMessage } from "@/api/goods.js";
+	import { getGoodsMessage,getCategoryList} from "@/api/goods.js";
 	import tplmenu from "@/pages/newindex/template/index_menu.vue"; //五列菜单模块
 	import tpl_goods from "@/pages/newindex/template/tpl_goods.vue"; //商品分类以及分类中的商品
 	import discountswiper from '@/pages/newindex/template/wodeSwiper.vue' //优惠商品
@@ -90,6 +90,7 @@
 		},
 		onLoad(){
 			window.addEventListener('scroll', this.scrolling);
+			this.loadData()
 		},
 		data() {
 			return {
@@ -105,19 +106,21 @@
 					},
 					{
 						img:require('../../static/menulist/icon_xiangxun_nor@2x.png'),
-						title:'品质香薰'
+						title:'',
+						index:1
 					},
 					{
 						img:require('../../static/menulist/icon_makeup_nor@2x.png'),
-						title:'美妆护肤'
+						title:'',
+						index:2
 					},
 					{
 						img:require('../../static/menulist/icon_overseas_nor@2x.png'),
-						title:'海外直购'
+						title:'精品推荐'
 					},
 					{
 						img:require('../../static/menulist/icon_discount_nor@2x.png'),
-						title:'源头折价'
+						title:'优惠商品'
 					},
 					{
 						img:require('../../static/menulist/Mask group@2x.png'),
@@ -145,7 +148,8 @@
 				//搜索栏滚动
 				actshow:false,
 				//优惠商品的list
-				productList:[]
+				productList:[],
+				tabList:[]
 			}
 		},
 		methods: {
@@ -233,7 +237,7 @@
 				})
 				// 精品推荐
 				getBoutique().then((res)=>{
-					console.log('精品推荐',res.data.result.records)
+					// console.log('精品推荐',res.data.result.records)
 					this.goodsList = res.data.result.records
 				})
 				// 优惠商品
@@ -247,7 +251,18 @@
 				uni.navigateTo({
 					url:'/pages/cart/coupon/couponCenter'
 				})
-			}
+			},
+			async loadData() {
+			  let list = await getCategoryList(0);
+			  this.tabList = list.data.result;
+			  this.menuList[1].title = this.tabList[1].name
+			  this.menuList[1].id = this.tabList[1].id
+			  this.menuList[2].title = this.tabList[0].name
+			  this.menuList[2].id = this.tabList[0].id
+			  console.log(this.tabList)
+			  // this.currentId = list.data.result[0].id;
+			  // this.loadListContent(0);
+			},
 		}
 	}
 </script>

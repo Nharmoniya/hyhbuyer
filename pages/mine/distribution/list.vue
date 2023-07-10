@@ -119,7 +119,7 @@ import {
   checkedDistributionGoods,
   getMpCode,
 } from "@/api/goods";
-
+import {getGoodsMessage} from '@/api/goods.js'
 import drawCanvas from "@/components/m-canvas";
 export default {
   data() {
@@ -227,6 +227,13 @@ export default {
     },
 
     async handleLink(goods) {
+		console.log('goods',goods)
+		this.res.bottom.goodsId = goods.goodsId
+		this.res.bottom.skuId = goods.skuId
+		// getGoodsMessage(this.res.bottom.goodsId).then((res)=>{
+		// 	this.res.bottom.img = res.data.result.thumbnail;
+		// 	console.log(res)
+		// })
       uni.showToast({
         title: "请请按住保存图片",
         duration: 2000,
@@ -244,6 +251,7 @@ export default {
           "￥"
         );
         this.res.bottom.desc = `${goods.goodsName}`;
+		// console.log(goods)
         this.res.bottom.img = `${goods.thumbnail}`;
 
         if (this.showFlag) {

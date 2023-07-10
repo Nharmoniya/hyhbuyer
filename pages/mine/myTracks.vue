@@ -6,7 +6,7 @@
 		<u-empty text="暂无历史记录" style="margin-top:200rpx;" mode="history" v-if="whetherEmpty"></u-empty>
 		<div v-else>
 			<view v-for="(item, index) in trackList" :key="index">
-				<view class="myTracks-title" @click="navgaiteToStore(item)">{{item.storeName}}</view>
+				<!-- <view class="myTracks-title" @click="navgaiteToStore(item)">{{item.storeName}}</view> -->
 				<view class="myTracks-items">
 
 					<u-swipe-action style="width: 100%;" :show="item.show" :index="index" :key="item.id"

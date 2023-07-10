@@ -20,6 +20,7 @@
 <script>
 // 引入绘制插件
 import DrawPoster from "@/js_sdk/u-draw-poster";
+import {getGoods,getGoodsMessage} from "@/api/goods.js"
 
 export default {
   data: () => ({
@@ -27,6 +28,7 @@ export default {
     show: false, //是否展示模态框
     dp: {}, //绘制的dp对象，用于存储绘制等一些方法。
     logo: require("@/pages/passport/static/logo-title.png"), //本地logo地址
+	canvsimg:''
   }),
 
   props: {
@@ -72,17 +74,18 @@ export default {
         },
       });
     },
-
     /**
      * 创建canvas
      */
     async init() {
+		// console.log(this.res.bottom.goodsId)
       this.show = true;
       this.dp = await DrawPoster.build({
         selector: "canvas",
         componentThis: this,
         loading: true,
         debugging: true,
+		useCORS:true,
       });
       let dp = this.dp;
       // #ifdef MP-WEIXIN

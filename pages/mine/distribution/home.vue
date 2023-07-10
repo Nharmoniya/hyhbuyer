@@ -98,7 +98,7 @@ export default {
 .nav-list {
   color: #fff;
   padding: 40rpx 0;
-  background: linear-gradient(91deg, $light-color 1%, $aider-light-color 99%);
+  background: linear-gradient(91deg, #DBA770 1%, #DBA770 99%);
 }
 .total {
   padding: 10rpx 0;

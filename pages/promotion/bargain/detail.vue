@@ -330,7 +330,7 @@ export default {
 </script>
 <style lang="scss">
 page {
-  background-color: $light-color !important;
+  background-color: #f6f6f6 !important;
 }
 </style>
 <style lang="scss" scoped>
@@ -429,12 +429,7 @@ page {
   margin: 50rpx auto 0 auto;
   text-align: center;
   font-size: 30rpx;
-  background-image: linear-gradient(
-    25deg,
-    $main-color,
-    $light-color,
-    $aider-light-color
-  );
+  background-color: #DBA770;
 
   padding: 18rpx;
   border-radius: 100px;

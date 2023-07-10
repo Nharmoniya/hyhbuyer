@@ -70,7 +70,7 @@ export default {
 </script>
 <style lang="scss">
 page {
-  background-color: $light-color !important;
+  background-color: #f6f6f6!important;
 }
 </style>
 <style lang="scss" scoped>
