@@ -85,12 +85,12 @@
 			discountswiper
 		},
 		mounted() {
+			this.loadData()
 			this.init();
 			this.getIndex();
 		},
 		onLoad(){
 			window.addEventListener('scroll', this.scrolling);
-			this.loadData()
 		},
 		data() {
 			return {
