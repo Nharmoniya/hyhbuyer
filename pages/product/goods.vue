@@ -191,9 +191,9 @@
 
       <view class="page-bottom mp-iphonex-bottom" id="pageBottom">
         <view class="icon-btn">
-          <view class="icon-btn-item" @click="navigateToStore(goodsDetail.storeId)">
+          <view class="icon-btn-item" @click="navigateToIndex()">
             <u-icon size="34" class="red" name="home-fill"></u-icon>
-            <view class="red icon-btn-name">店铺</view>
+            <view class="red icon-btn-name">首页</view>
           </view>
           <view class="icon-btn-item" @click="linkMsgDetail()">
             <u-icon size="34" name="kefu-ermai"></u-icon>
@@ -799,7 +799,12 @@ export default {
         url: `/pages/product/shopPage?id=` + store_id,
       });
     },
-
+    //跳转到首页
+	navigateToIndex(){
+		uni.switchTab({
+			url:'/pages/newindex/newindex'
+		})
+	},
     /**
      * 获取优惠券按钮
      */

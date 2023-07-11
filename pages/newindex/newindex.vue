@@ -31,7 +31,7 @@
 		<view class="direct_sales_area">
 			<view class="direct_sales_area_header">
 				<view class="left_form">独家直销</view>
-				<view class="right_form">
+				<view class="right_form" @click="navigateTodujia">
 					查看全部
 					<image src="@/static/icon_all_nor@2x.png" style="width: 44rpx;height: 44rpx;"></image>
 				</view>
@@ -263,6 +263,13 @@
 			  // this.currentId = list.data.result[0].id;
 			  // this.loadListContent(0);
 			},
+			//独家直销查看全部商品
+			navigateTodujia(){
+				uni.setStorageSync('cateid', 'a')
+				uni.switchTab({
+					url: '/pages/tabbar/category/category'
+				})
+			}
 		}
 	}
 </script>
