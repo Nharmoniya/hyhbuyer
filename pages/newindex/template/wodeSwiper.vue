@@ -3,12 +3,12 @@
 		<view class="direct_sales_area_header">
 			<view class="left_form">优惠商品</view>
 			<view class="right_form">
-              <view class="list_current">{{SoncurrentIndex+1}}</view>
+              <view class="list_current" style="margin-right: 6rpx;">{{SoncurrentIndex+1}}</view>
 			  <view class="list_total">/{{productlist.length}}</view>
 			</view>
 		</view>
 		<!-- 轮播图 -->
-		<swiper :current="SoncurrentIndex" class="image-container" previous-margin="0rpx" next-margin="0rpx" circular
+		<swiper @change="change" :current="SoncurrentIndex" class="image-container" previous-margin="0rpx" next-margin="0rpx" circular
 			:autoplay="true" >
 			<swiper-item :class="SoncurrentIndex == index ? 'swiper-item' : 'swiper-item-side'"
 				v-for="(item, index) in productlist" :key="index" lazy-load
@@ -54,6 +54,10 @@
 			};
 		},
 		methods: {
+			change(e){
+				console.log(e)
+				this.SoncurrentIndex = e.target.current
+			},
 			// swiperChange(e){
 			// 	console.log(e)
 			// 	this.SoncurrentIndex = e.detail.current;
