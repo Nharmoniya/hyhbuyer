@@ -34,7 +34,7 @@
 						<span>已售 {{ item.buyCount || "0" }}</span>
 						<span>{{ item.commentNum || "0" }}条评论</span>
 					</div>
-					<div class="store-seller-name" v-if="storeName" @click="navigateToStoreDetailPage(item)">
+					<!-- <div class="store-seller-name" v-if="storeName" @click="navigateToStoreDetailPage(item)">
 						<div class="text-hidden">
 							<u-tag style="margin-right: 10rpx" size="mini" mode="dark" v-if="item.selfOperated"
 								text="自营" type="error" />
@@ -43,7 +43,7 @@
 						<span>
 							<u-icon name="arrow-right"></u-icon>
 						</span>
-					</div>
+					</div> -->
 				</view>
 			</view>
 		</view>

@@ -576,8 +576,8 @@ export default {
   height: 200rpx;
   padding: 0 !important;
   background-image: linear-gradient(to right,
-      $light-color 0%,
-      $aider-light-color 100%) !important;
+      $price-color 0%,
+      $price-color 100%) !important;
 }
 
 page,

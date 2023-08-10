@@ -7,9 +7,9 @@
 		</u-navbar>
 		<view class="content">
 			<scroll-view scroll-y scroll-with-animation class="left-aside">
-				<view class="f-item b-b" @tap="tapbar('a')" :class="{ active: currentId === 'a'}">独家直销</view>
+				<view class="f-item b-b" @tap="tapbar('a')" :class="{ active: currentId === 'a'}">厂家直销</view>
 				<view class="f-item b-b" @tap="tapbar('b')" :class="{ active: currentId === 'b'}">优惠商品</view>
-				<view class="f-item b-b" @tap="tapbar('c')" :class="{ active: currentId === 'c'}">精品推荐</view>
+				<view class="f-item b-b" @tap="tapbar('c')" :class="{ active: currentId === 'c'}">名媛优品</view>
 				<view v-for="(item, index) in tabList" :key="item.id" class="f-item b-b"
 					:class="{ active: item.id === currentId }" @click="tabtap(item, index)">
 					{{ item.name }}
@@ -38,9 +38,9 @@
 					</view>
 				</view>
 				<view class="s-list-index">
-					<text class="s-item" v-if="currentId === 'a'">独家直销</text>
+					<text class="s-item" v-if="currentId === 'a'">厂家直销</text>
 					<text class="s-item" v-if="currentId === 'b'">优惠商品</text>
-					<text class="s-item" v-if="currentId === 'c'">精品推荐</text>
+					<text class="s-item" v-if="currentId === 'c'">名媛优品</text>
 					<view class="s-list-index-content">
 						<view class="goods_item" v-for="(item,index) in IndexList" :key="index"
 							@click="handleClick(item)">

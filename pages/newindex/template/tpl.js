@@ -46,13 +46,13 @@ export function modelNavigateTo(item) {
 					url: '/pages/tabbar/user/my'
 				})
 				break;
-			case "独家直销":
+			case "厂家直销":
 				uni.setStorageSync('cateid', 'a')
 				uni.switchTab({
 					url: '/pages/tabbar/category/category'
 				})
 				break;
-			case "精品推荐":
+			case "名媛优品":
 				uni.setStorageSync('cateid', 'c')
 				uni.switchTab({
 					url: '/pages/tabbar/category/category'

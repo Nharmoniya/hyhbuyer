@@ -4,7 +4,7 @@
       <view class="goods-detail">
         <view class="detail_padding">
           <div class="goods-detail-box">
-            <div class="goods-detail-item goods-active">商品介绍</div>
+            <div class="goods-detail-item goods-active" style="margin-left: 32rpx;">商品介绍</div>
           </div>
           <u-empty
             class="empty"
@@ -23,11 +23,11 @@
       </view>
     </view>
 
-    <view class="detail-box">
+    <view class="detail-box" style="padding: 0!important;">
       <view class="goods-detail">
         <view class="detail_padding">
           <div class="goods-detail-box">
-            <div class="goods-detail-item goods-active">商品参数</div>
+            <div class="goods-detail-item goods-active" style="margin-left: 32rpx;">商品参数</div>
           </div>
           <!-- <u-divider>商品参数</u-divider> -->
           <div class="param-list" v-if="goodsParams.length == 0">

@@ -3,32 +3,38 @@
 		<view class="direct_sales_area_header">
 			<view class="left_form">优惠商品</view>
 			<view class="right_form">
-              <view class="list_current">{{SoncurrentIndex+1}}</view>
-			  <view class="list_total">/{{productlist.length}}</view>
+				<view class="list_current" style="margin-right: 6rpx;">{{SoncurrentIndex+1}}</view>
+				<view class="list_total">/{{productlist.length}}</view>
 			</view>
 		</view>
 		<!-- 轮播图 -->
-		<swiper :current="SoncurrentIndex" class="image-container" previous-margin="0rpx" next-margin="0rpx" circular
-			:autoplay="true" >
+		<swiper @change="change" :current="SoncurrentIndex" class="image-container" previous-margin="0rpx"
+			next-margin="0rpx" circular :autoplay="true">
 			<swiper-item :class="SoncurrentIndex == index ? 'swiper-item' : 'swiper-item-side'"
 				v-for="(item, index) in productlist" :key="index" lazy-load
 				:style="dontFirstAnimation ? 'animation: none;' : ''">
-				<view class="item" :class="[item.text, SoncurrentIndex == index ? 'item-img' : 'item-img-side']" @click="handleClick(item)">
-					<image :src="item.original" style="width: 100%;height: 289rpx;border-radius: 20rpx;" ></image>
-					<!-- <view style="width: 100%;height: 289rpx;border-radius: 20rpx;">{{item.intro}}</view> -->
-					<view class="product_title">{{item.goodsName}}</view>
-					<view class="product_price">
-						<view class="price">
-							<view class="money">
-								<view class="money_icon">￥</view>
-							{{item.price}}
+				<view class="item" :class="[item.text, SoncurrentIndex == index ? 'item-img' : 'item-img-side']"
+					@click="handleClick(item)">
+					<view style="display: flex;flex-direction: row;justify-content: space-evenly;">
+						<image :src="item.original" style="width: 344rpx;height: 344rpx;border-radius: 20rpx;"></image>
+							<view class="product_price">
+								<view class="product_title">{{item.goodsName}}</view>
+								<view class="price">
+									<view class="money">
+										<view class="money_icon">￥</view>
+										{{item.price}}
+									</view>
+									<view class="discount">
+										<view style="font-size: 14rpx;transform: scale(0.8);line-height: 30rpx;">￥
+										</view>{{(item.price * 1.47).toFixed(2)}}
+									</view>
+								</view>
+								<view class="buynow" @click="gotoProduct(item.id)">立即抢购</view>
 							</view>
-							<view class="discount">
-								<view style="font-size: 14rpx;transform: scale(0.8);line-height: 30rpx;">￥</view>{{item.price * 1.47}}
-							</view>
-						</view>
-						<view class="buynow" @click="gotoProduct(item.id)">立即抢购</view>
+
 					</view>
+					<!-- <view style="width: 100%;height: 289rpx;border-radius: 20rpx;">{{item.intro}}</view> -->
+
 				</view>
 			</swiper-item>
 		</swiper>
@@ -39,9 +45,13 @@
 </template>
 
 <script>
-	import { getGoodsMessage } from "@/api/goods.js";
+	import {
+		getGoodsMessage
+	} from "@/api/goods.js";
 	export default {
-		onShow() {},
+		onShow() {
+			console.log('list', this.productlist)
+		},
 		props: {
 			productlist: {
 				type: Array
@@ -54,28 +64,32 @@
 			};
 		},
 		methods: {
+			change(e) {
+				console.log(e)
+				this.SoncurrentIndex = e.target.current
+			},
 			// swiperChange(e){
 			// 	console.log(e)
 			// 	this.SoncurrentIndex = e.detail.current;
 			// }
-			gotoProduct(id){
+			gotoProduct(id) {
 				console.log(id)
 			},
 			handleClick(item) {
 				console.log(item)
-				getGoodsMessage(item.id).then((res)=>{
+				getGoodsMessage(item.id).then((res) => {
 					console.log(res)
 					if (!res.data.success) {
-					  setTimeout(() => {
-					    uni.navigateBack();
-					  }, 500);
+						setTimeout(() => {
+							uni.navigateBack();
+						}, 500);
 					} else {
 						console.log(res.data)
 						//获取接口中查到的goodsId 和 Id
 						let goodsId = res.data.result.skuList[0].goodsId
 						let Id = res.data.result.skuList[0].id
 						uni.navigateTo({
-						url: `/pages/product/goods?id=${Id}&goodsId=${goodsId}`,
+							url: `/pages/product/goods?id=${Id}&goodsId=${goodsId}`,
 						});
 					}
 				});
@@ -97,7 +111,7 @@
 
 		//指示器
 		.per_idindicator {
-			
+
 			width: 100%;
 			height: 40rpx;
 			margin-top: 6rpx;
@@ -123,39 +137,44 @@
 			}
 
 		}
-		.product_title{
-			width: 686rpx;
-			height: 40rpx;
-			// border: 1px solid red;
-			margin-top: 20rpx;
-			font-size: 26rpx;
-			font-weight: 400;
-			color: #333333;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
+
 		
-		.product_price{
-			width: 100%;
-			height: 46rpx;
+		.product_price {
+			// width: 100%;
+			// height: 46rpx;
 			// border: 1px solid red;
 			margin-top: 8rpx;
 			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			.price{
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			// justify-content: space-between;
+			.product_title {
+				// width: 686rpx;
+				height: 40rpx;
+				// border: 1px solid red;
+				margin-top: 20rpx;
+				font-size: 26rpx;
+				font-weight: 400;
+				color: #333333;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.price {
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				
-				.money{
+
+				.money {
 					font-size: 32rpx;
 					font-weight: 400;
 					color: #FF3939;
 					display: flex;
 					flex-direction: row;
-					.money_icon{
+
+					.money_icon {
 						width: 20rpx;
 						height: 28rpx;
 						font-size: 20rpx;
@@ -163,7 +182,8 @@
 						color: #FF3939;
 					}
 				}
-				.discount{
+
+				.discount {
 					font-size: 24rpx;
 					font-weight: 400;
 					color: #AAAAAA;
@@ -173,7 +193,8 @@
 					text-decoration: line-through;
 				}
 			}
-			.buynow{
+
+			.buynow {
 				width: 140rpx;
 				height: 46rpx;
 				background: #DBA770;
@@ -188,17 +209,20 @@
 				justify-content: center;
 			}
 		}
-        .swiper-item{
+
+		.swiper-item {
+
 			// border: 1px solid black;
 			.item {
 				position: relative;
 				width: 686rpx;
 				height: 289rpx;
-			    border-radius: 20rpx;
+				border-radius: 20rpx;
 				// border: 1px solid green;
-				
+
 			}
 		}
+
 		// 轮播图
 		.image-container {
 			width: 100%;
@@ -206,8 +230,8 @@
 			// border: 1px solid black;
 
 		}
-		
-		
+
+
 		// @keyframes to-mini
 		// {
 		// 	from {
@@ -227,7 +251,7 @@
 		// 	}
 		// }
 	}
- 
+
 	.direct_sales_area_header {
 		width: 100%;
 		height: 54rpx;
@@ -255,7 +279,8 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			.list_current{
+
+			.list_current {
 				font-size: 38rpx;
 				font-weight: 400;
 				color: #333333;
@@ -263,7 +288,8 @@
 				margin-bottom: 8rpx;
 				width: 16rpx;
 			}
-			.list_total{
+
+			.list_total {
 				font-size: 28rpx;
 				font-weight: 400;
 				color: #AAAAAA;
