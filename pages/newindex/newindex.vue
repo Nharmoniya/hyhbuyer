@@ -30,7 +30,7 @@
 		<!-- 独家直销区域 单独四块-->
 		<view class="direct_sales_area">
 			<view class="direct_sales_area_header">
-				<view class="left_form">独家直销</view>
+				<view class="left_form">厂家直销</view>
 				<view class="right_form" @click="navigateTodujia">
 					查看全部
 					<image src="@/static/icon_all_nor@2x.png" style="width: 44rpx;height: 44rpx;"></image>
@@ -55,7 +55,7 @@
 		<!-- 精品推荐 -->
 		<view class="boutique_recommendation_area">
 			<view class="direct_sales_area_header" style="margin-bottom: 28rpx;">
-				<view class="left_form">精品推荐</view>
+				<view class="left_form">名媛优品</view>
 				<view class="right_form">
 					<!-- 查看全部 -->
 					<!-- <image src="@/static/icon_all_nor@2x.png" style="width: 44rpx;height: 44rpx;"></image> -->
@@ -102,7 +102,7 @@
 				menuList: [
 					{
 						img:require('../../static/menulist/icon_exclusive_nor@2x.png'),
-						title:'独家直销'
+						title:'厂家直销'
 					},
 					{
 						img:require('../../static/menulist/icon_xiangxun_nor@2x.png'),
@@ -116,7 +116,7 @@
 					},
 					{
 						img:require('../../static/menulist/icon_overseas_nor@2x.png'),
-						title:'精品推荐'
+						title:'名媛优品'
 					},
 					{
 						img:require('../../static/menulist/icon_discount_nor@2x.png'),
@@ -233,7 +233,15 @@
 				// 独家直销
 				getExclusive().then((res)=>{
 					// console.log('独家直销',res.data.result.records)
-					this.list2 = res.data.result.records
+					// this.list2 = res.data.result.records
+					res.data.result.records.forEach((item)=>{
+						if(this.list2.length < 4){
+							this.list2.push(item)
+						} else {
+							return false
+						}
+					})
+				
 				})
 				// 精品推荐
 				getBoutique().then((res)=>{
@@ -242,7 +250,7 @@
 				})
 				// 优惠商品
 				getDiscount().then((res)=>{
-					// console.log('优惠商品',res.data.result.records)
+					console.log('优惠商品',res.data.result.records)
 					this.productList = res.data.result.records
 				})
 			},

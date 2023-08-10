@@ -1,5 +1,5 @@
 .recommend-box,
-.detail-box,
+// .detail-box,
 .store-recommend,
 .store-info,
 .evaluate-box,
@@ -10,6 +10,13 @@
   background: #fff;
   overflow: hidden;
   margin: 20rpx 0;
+}
+.detail-box{
+	border-radius: 32rpx;
+	// padding: 0rpx 32rpx 0 32rpx;
+	background: #fff;
+	overflow: hidden;
+	margin: 20rpx 0;
 }
 .goods-recommend-title,
 .store-recommend-title,

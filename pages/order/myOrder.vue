@@ -44,7 +44,7 @@
                 <view class="name wes">{{ order.storeName }}</view>
               </view>
               <view class="order-sn">{{
-                order.orderStatus | orderStatusList
+                order.orderStatus | orderStatus
               }}</view>
             </view>
             <view>
@@ -363,6 +363,15 @@ export default {
       });
       this.loadData(val);
     },
+  },
+  filters:{
+	  orderStatus(order){
+		  switch(order){
+			  case 'CANCELLED':
+			  return '已取消'
+			  break;
+		  }
+	  }
   },
   methods: {
     // 售后
