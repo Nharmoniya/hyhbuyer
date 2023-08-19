@@ -156,7 +156,7 @@
 				}
 			},
 			handleClick(item) {
-				console.log(item)
+				console.log('前往商品',item)
 				getGoodsMessage(item.id).then((res) => {
 					console.log(res)
 					if (!res.data.success) {
