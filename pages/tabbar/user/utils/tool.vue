@@ -10,10 +10,10 @@
 			  <view>我的足迹</view>
 			</view>
 		
-			<view class="interact-item" @click="navigateTo('/pages/order/evaluate/myEvaluate')">
+			<!-- <view class="interact-item" @click="navigateTo('/pages/order/evaluate/myEvaluate')">
 			  <image src="/static/img/my/my-judge.png" mode=""></image>
 			  <view>我的评价</view>
-			</view>
+			</view> -->
 			
 			<view class="interact-item" @click="navigateTo('/pages/mine/myCollect')">
 			  <image src="/static/img/my/my-favorite.png" mode=""></image>
@@ -25,10 +25,10 @@
 			  <view>我的积分</view>
 			</view>
 			
-			<view class="interact-item" @click="distribution">
+			<!-- <view class="interact-item" @click="distribution">
 			  <image src="/static/img/my/my-distribution.png" mode=""></image>
 			  <view>我的分销</view>
-			</view>
+			</view> -->
 			
 			<view class="interact-item" @click="navigateTo('/pages/order/complain/complainList')">
 			  <image src="/static/img/my/my-complaint.png" mode=""></image>

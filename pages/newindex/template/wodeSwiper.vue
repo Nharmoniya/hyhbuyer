@@ -50,7 +50,7 @@
 	} from "@/api/goods.js";
 	export default {
 		onShow() {
-			console.log('list', this.productlist)
+			// console.log('list', this.productlist)
 		},
 		props: {
 			productlist: {
@@ -65,7 +65,7 @@
 		},
 		methods: {
 			change(e) {
-				console.log(e)
+				// console.log(e)
 				this.SoncurrentIndex = e.target.current
 			},
 			// swiperChange(e){
@@ -73,10 +73,10 @@
 			// 	this.SoncurrentIndex = e.detail.current;
 			// }
 			gotoProduct(id) {
-				console.log(id)
+				// console.log(id)
 			},
 			handleClick(item) {
-				console.log(item)
+				// console.log(item)
 				getGoodsMessage(item.id).then((res) => {
 					console.log(res)
 					if (!res.data.success) {
@@ -84,7 +84,7 @@
 							uni.navigateBack();
 						}, 500);
 					} else {
-						console.log(res.data)
+						// console.log(res.data)
 						//获取接口中查到的goodsId 和 Id
 						let goodsId = res.data.result.skuList[0].goodsId
 						let Id = res.data.result.skuList[0].id

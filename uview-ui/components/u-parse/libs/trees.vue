@@ -300,6 +300,7 @@
 		display: inline-block;
 		max-width: 100%;
 		overflow: hidden;
+		margin-top: -5px;
 	}
 
 	/* #ifdef MP-WEIXIN */
