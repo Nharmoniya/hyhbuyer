@@ -10,7 +10,7 @@
 		<!-- 轮播图区域 -->
 		<view class="swiper_form">
 			<u-swiper height="844" :list="swiperList" keyName="img" name="img" showTitle :autoplay="true"
-				circular></u-swiper>
+				circular @click="click"></u-swiper>
 		</view>
 		<!-- 工具分类 -->
 		<view class="tool_form">
@@ -153,6 +153,14 @@
 			}
 		},
 		methods: {
+			click(e){
+				console.log(this.swiperList[e].url)
+				let id = this.swiperList[e].url.id
+				let goodsId = this.swiperList[e].url.goodsId
+				uni.navigateTo({
+				url: `/pages/product/goods?id=${id}&goodsId=${goodsId}`,
+				});
+			},
 			handleClick(item) {
 				console.log(item)
 				getGoodsMessage(item.id).then((res)=>{

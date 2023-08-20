@@ -559,7 +559,6 @@
 					"style": {
 						"navigationStyle": "custom",
 						"navigationBarTextStyle": "white"
-
 					}
 				},{
 					"path": "bargain/detail",
